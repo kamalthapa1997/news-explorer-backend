@@ -27,7 +27,6 @@ app.use(limiter);
 app.use(routes);
 app.use(errors());
 
-// centralized error
 app.use(errorHandler);
 
 app.listen(PORT, () => {
