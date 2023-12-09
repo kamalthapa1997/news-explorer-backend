@@ -3,12 +3,10 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const helmet = require("helmet");
 const app = express();
-const util = require("util");
+
 const { errorHandler } = require("./middlewares/error-handler");
 const { limiter } = require("./middlewares/rateLimit");
 const { errors } = require("celebrate");
-global.TextEncoder = util.TextEncoder || require("util").TextEncoder;
-global.TextDecoder = util.TextDecoder || require("util").TextDecoder;
 
 const { requestLogger, errorLogger } = require("./middlewares/logger");
 
