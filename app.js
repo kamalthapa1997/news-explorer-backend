@@ -5,6 +5,8 @@ const helmet = require("helmet");
 const app = express();
 const { errorHandler } = require("./middlewares/error-handler");
 const { limiter } = require("./middlewares/rateLimit");
+const { errors } = require("celebrate");
+
 const { requestLogger, errorLogger } = require("./middlewares/logger");
 
 const { PORT = 3000 } = process.env;
@@ -22,6 +24,7 @@ app.use(requestLogger);
 app.use(errorLogger);
 app.use(limiter);
 app.use(routes);
+app.use(errors());
 
 // centralized error
 app.use(errorHandler);

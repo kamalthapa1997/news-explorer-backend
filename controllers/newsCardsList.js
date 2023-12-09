@@ -51,8 +51,6 @@ const createItem = (req, res, next) => {
 
 const deleteItem = (req, res, next) => {
   const { itemId } = req.params;
-  console.log("id to be deleted", itemId);
-  console.log("id of user be deleted", req.user._id);
 
   NewsCardsList.findById(itemId)
     .orFail(() => new NotFoundError("Item not found."))

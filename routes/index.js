@@ -5,10 +5,15 @@ const { NotFoundError } = require("../errors/NotFoundError");
 const users = require("./users");
 const authorize = require("../middlewares/auth");
 
+const {
+  validateloginAuth,
+  validateuserInfo,
+} = require("../middlewares/validation");
+
 //signup
-router.post("/signup", createUser);
+router.post("/signup", validateuserInfo, createUser);
 //login
-router.post("/signin", login);
+router.post("/signin", validateloginAuth, login);
 // newscards
 router.use("/articles", newsCardList);
 router.use("/users", authorize, users);
