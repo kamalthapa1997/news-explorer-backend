@@ -1,3 +1,4 @@
+<<<<<<< stage-back-end
 # news-explorer-backend
 
 ## DOMAIN
