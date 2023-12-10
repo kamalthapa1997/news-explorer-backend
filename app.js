@@ -1,18 +1,24 @@
 const express = require("express");
-const mongoose = require("mongoose");
-const cors = require("cors");
-const helmet = require("helmet");
-const app = express();
 
+const mongoose = require("mongoose");
+
+const cors = require("cors");
+
+const helmet = require("helmet");
+
+const app = express();
+const { errors } = require("celebrate");
 const { errorHandler } = require("./middlewares/error-handler");
 const { limiter } = require("./middlewares/rateLimit");
-const { errors } = require("celebrate");
+const config = require("./utils/config");
 
 const { requestLogger, errorLogger } = require("./middlewares/logger");
 
 const { PORT = 3000 } = process.env;
 
-mongoose.connect("mongodb://127.0.0.1:27017/newsex_db", (r) => {
+const databaseAddress = config.database.address;
+
+mongoose.connect(databaseAddress, (r) => {
   console.log(r);
 });
 

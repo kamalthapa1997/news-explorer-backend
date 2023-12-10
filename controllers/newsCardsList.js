@@ -2,7 +2,6 @@ const NewsCardsList = require("../models/newsCardsList");
 const { NotFoundError } = require("../errors/NotFoundError");
 const { ForbiddenError } = require("../errors/ForbiddenError");
 const { BadRequestError } = require("../errors/BadRequestError");
-const { use } = require("../routes/newsCardsList");
 
 const getItems = (req, res, next) => {
   // console.log(req.user_id, "-------------");

@@ -10,10 +10,12 @@ const {
   validateuserInfo,
 } = require("../middlewares/validation");
 
-//signup
+// signup
 router.post("/signup", validateuserInfo, createUser);
-//login
+
+// login
 router.post("/signin", validateloginAuth, login);
+
 // newscards
 router.use("/articles", newsCardList);
 router.use("/users", authorize, users);

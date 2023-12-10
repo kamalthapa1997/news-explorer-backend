@@ -8,6 +8,7 @@ const { BadRequestError } = require("../errors/BadRequestError");
 const { ConflictError } = require("../errors/ConflictError");
 const { UnauthorizedError } = require("../errors/UnauthorizationError");
 
+console.log("==============>>", JWT_SECRET);
 const getUser = (req, res, next) => {
   userProfile
     .find({})
