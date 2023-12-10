@@ -1,4 +1,7 @@
-const JWT_SECRET =
-  "a8d71dbfd9ecefa128208adf22c756b6423b2356af96a68261085356128b5f16";
+require("dotenv").config();
+
+// JWT_SECRET
+
+const { JWT_SECRET = "some long strinq" } = process.env;
 
 module.exports = { JWT_SECRET };
