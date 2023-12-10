@@ -29,18 +29,18 @@ const validateuserInfo = celebrate({
       "string.max": 'The maximum length of the "name" field is 30',
       "string.empty": 'The "name" field must be filled in',
     }),
-    email: Joi.string().email().required(),
-    password: Joi.string().required(),
+    email: Joi.string().email().min(2).max(30).required(),
+    password: Joi.string().min(2).max(30).required(),
   }),
 });
 
 const validateloginAuth = celebrate({
   body: Joi.object().keys({
-    email: Joi.string().messages({
+    email: Joi.string().min(2).max(30).messages({
       "string.empty": 'The "email" field must be filled in',
       "string.email": 'The "email" field must be a valid email',
     }),
-    password: Joi.string().messages({
+    password: Joi.string().min(2).max(30).messages({
       "string.empty": 'The "password" field must be filled in',
     }),
   }),

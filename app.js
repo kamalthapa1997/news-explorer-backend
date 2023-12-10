@@ -7,7 +7,7 @@ const cors = require("cors");
 const helmet = require("helmet");
 
 const app = express();
-const { errors } = require("celebrate");
+const { errors } = require('celebrate');
 const { errorHandler } = require("./middlewares/error-handler");
 const { limiter } = require("./middlewares/rateLimit");
 const config = require("./utils/config");
