@@ -1,8 +1,4 @@
-# .gitignore
 
-
-# macOS
-.DS_Store
 
 # Logs
 logs
@@ -21,3 +17,4 @@ node_modules
 .vscode
 *.log
 .env
+
