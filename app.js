@@ -14,7 +14,7 @@ const config = require("./utils/config");
 
 const { requestLogger, errorLogger } = require("./middlewares/logger");
 
-const { PORT = 3000 } = process.env;
+const { PORT = 3001 } = process.env;
 
 const databaseAddress = config.database.address;
 console.log(databaseAddress);
