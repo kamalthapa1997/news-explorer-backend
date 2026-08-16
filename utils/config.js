@@ -11,6 +11,6 @@ module.exports = {
   JWT_SECRET,
   database: {
     address:
-      process.env.DATABASE_ADDRESS || "mongodb://127.0.0.1:27017/newsex_db",
+      process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/newsex_db",
   },
 };
