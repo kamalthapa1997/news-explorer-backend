@@ -15,15 +15,8 @@ const config = require("./utils/config");
 const { requestLogger, errorLogger } = require("./middlewares/logger");
 
 const PORT = process.env.PORT || 5000;
-const HOST = process.env.HOST || "127.0.0.1";
 
 const databaseAddress = config.database.address;
-
-mongoose.connect(databaseAddress).then(() => {
-  console.log("Connected to MongoDB");
-}).catch((err) => {
-  console.error("MongoDB connection error:", err.message);
-});
 
 const routes = require("./routes");
 
@@ -38,6 +31,18 @@ app.use(errors());
 
 app.use(errorHandler);
 
-app.listen(PORT, HOST, () => {
-  console.log(`App is listening at http://${HOST}:${PORT}`);
-});
+async function startServer() {
+  try {
+    await mongoose.connect(databaseAddress);
+    console.log("Connected to MongoDB");
+
+    app.listen(PORT, "0.0.0.0", () => {
+      console.log(`App is listening on port ${PORT}`);
+    });
+  } catch (err) {
+    console.error("MongoDB connection error:", err.message);
+    process.exit(1);
+  }
+}
+
+startServer();
