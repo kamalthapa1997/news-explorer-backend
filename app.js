@@ -15,6 +15,7 @@ const config = require("./utils/config");
 const { requestLogger, errorLogger } = require("./middlewares/logger");
 
 const PORT = process.env.PORT || 5000;
+const HOST = process.env.HOST || "127.0.0.1";
 
 const databaseAddress = config.database.address;
 
@@ -37,6 +38,6 @@ app.use(errors());
 
 app.use(errorHandler);
 
-app.listen(PORT, () => {
-  console.log(`App is listening at port ${PORT}`);
+app.listen(PORT, HOST, () => {
+  console.log(`App is listening at http://${HOST}:${PORT}`);
 });
