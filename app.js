@@ -26,6 +26,14 @@ app.use(helmet());
 app.use(requestLogger);
 app.use(errorLogger);
 app.use(limiter);
+
+app.get("/", (req, res) => {
+  res.json({
+    status: "ok",
+    message: "News Explorer API is running",
+  });
+});
+
 app.use(routes);
 app.use(errors());
 
