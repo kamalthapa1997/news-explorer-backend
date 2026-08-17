@@ -8,8 +8,6 @@ const { BadRequestError } = require("../errors/BadRequestError");
 const { ConflictError } = require("../errors/ConflictError");
 const { UnauthorizedError } = require("../errors/UnauthorizationError");
 
-console.log("==============>>", JWT_SECRET);
-
 const getCurrentUser = (req, res, next) => {
   console.log("get current user", req.user._id);
   const userId = req.user._id;

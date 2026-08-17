@@ -14,13 +14,14 @@ const config = require("./utils/config");
 
 const { requestLogger, errorLogger } = require("./middlewares/logger");
 
-const { PORT = 3001 } = process.env;
+const PORT = process.env.PORT || 5000;
 
 const databaseAddress = config.database.address;
-console.log(databaseAddress);
 
-mongoose.connect(databaseAddress, (r) => {
-  console.log(r);
+mongoose.connect(databaseAddress).then(() => {
+  console.log("Connected to MongoDB");
+}).catch((err) => {
+  console.error("MongoDB connection error:", err.message);
 });
 
 const routes = require("./routes");
